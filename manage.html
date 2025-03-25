@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>密碼更新產生器</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    textarea { width: 80%; height: 150px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>密碼更新產生器</h1>
+  <p>輸入新密碼與新邀請連結，產生 GitHub 更新指令</p>
+  <input type="text" id="newPassword" placeholder="輸入新密碼"><br>
+  <input type="text" id="newInvite" placeholder="輸入新邀請連結"><br>
+  <button onclick="generateCode()">產生更新 JSON</button>
+
+  <textarea id="output" readonly></textarea>
+
+  <script>
+    function generateCode() {
+      const password = document.getElementById("newPassword").value;
+      const inviteLink = document.getElementById("newInvite").value;
+      const jsonOutput = `{
+  "password": "${password}",
+  "invite_link": "${inviteLink}"
+}`;
+      document.getElementById("output").value = jsonOutput;
+    }
+  </script>
+</body>
+</html>
