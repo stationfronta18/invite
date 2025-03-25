@@ -18,26 +18,18 @@
   <button onclick="checkPassword()">驗證</button>
   <div class="link" id="inviteLink" style="display:none;">
     ✅ 驗證成功！<br>
-    <a id="inviteUrl" href="#" target="_blank">👉 點我加入 LINE 群</a>
+    <a href="https://line.me/ti/g2/MonKSMYjETmvr9sv-lGH3uFhdwxjFs1kX_57Dw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">👉 點我加入 LINE 群</a>
   </div>
 
   <script>
-    async function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
-      try {
-        const response = await fetch('password.json');
-        const data = await response.json();
-        const correctPassword = data.password;
-        const inviteLink = data.invite_link;
+    const correctPassword = "你的密碼"; // 這裡填上通過審核後給他的密碼
 
-        if (input === correctPassword) {
-          document.getElementById("inviteUrl").href = inviteLink;
-          document.getElementById("inviteLink").style.display = "block";
-        } else {
-          alert("密碼錯誤，請重新確認！");
-        }
-      } catch (error) {
-        alert("載入密碼檔案時發生錯誤。請稍後再試。");
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === correctPassword) {
+        document.getElementById("inviteLink").style.display = "block";
+      } else {
+        alert("密碼錯誤，請重新確認！");
       }
     }
   </script>
