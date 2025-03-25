@@ -13,7 +13,7 @@
 <body>
   <h1>LINE 群邀請密碼驗證</h1>
   <p>請輸入通過審核時設定的密碼</p>
-  <input type="password" id="passwordInput" placeholder="password">
+  <input type="password" id="passwordInput" placeholder="輸入密碼">
   <br>
   <button onclick="checkPassword()">驗證</button>
   <div class="link" id="inviteLink" style="display:none;">
@@ -22,7 +22,7 @@
   </div>
 
   <script>
-    const correctPassword = "你的密碼"; // 這裡填上通過審核後給他的密碼
+    const correctPassword = "pass"; // 這裡填上通過審核後給他的密碼
 
     function checkPassword() {
       const input = document.getElementById("passwordInput").value;
